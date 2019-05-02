@@ -13,8 +13,8 @@ import (
 //user 处理器
 func UserHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
-	case "GET": handleGet(w, r)
-	case "POST": handlePost(w, r)
+	case "GET": userHandleGet(w, r)
+	case "POST": userHandlePost(w, r)
 	default:
 		resp := models.MyResponse{
 					Code: 1,
@@ -27,7 +27,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 //get请求处理器
-func handleGet(w http.ResponseWriter, r *http.Request) {
+func userHandleGet(w http.ResponseWriter, r *http.Request) {
 	//响应
 	var resp models.MyResponse
 	// 获取/user/xxx
@@ -120,7 +120,7 @@ func handleGet(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println(url)
 }
 //post请求处理器
-func handlePost(w http.ResponseWriter, r *http.Request) {
+func userHandlePost(w http.ResponseWriter, r *http.Request) {
 	var resp models.MyResponse
 	// 获取/user/xxx
 	url := r.URL.Path

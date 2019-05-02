@@ -36,6 +36,7 @@ func Verify(w http.ResponseWriter, r *http.Request) {
 				//选择调用那个处理器 split[1]
 				switch split[1] {
 				case "user": UserHandler(w, r)
+				case "record": RecordHandler(w, r)
 				default:
 					resp := models.MyResponse{
 						Code: 1,
